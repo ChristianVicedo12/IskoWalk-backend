@@ -1,0 +1,231 @@
+@page
+@model IskoWalk.Pages.SignupModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - IskoWalk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            color: #8B0000;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .right-panel {
+            flex: 1;
+            background-color: #8B0000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: white;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: #999;
+        }
+
+        .btn-signup {
+            width: 100%;
+            padding: 15px;
+            background-color: white;
+            color: #8B0000;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-signup:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-signup:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .alert-danger {
+            background-color: #ff4444;
+            color: white;
+        }
+
+        .alert-success {
+            background-color: #00C851;
+            color: white;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <div class="logo-container">
+            <img src="~/images/iskowalk-logo.png" alt="IskoWalk Logo" class="logo" onerror="this.style.display='none'">
+            <p class="tagline">No Isko Walks Alone.</p>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="signup-container">
+            <h2>Create An Account</h2>
+            <p class="subtitle">Join the community with your PUP Email to get started.</p>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+            {
+                <div class="alert alert-success">
+                    @Model.SuccessMessage
+                </div>
+            }
+
+            <form method="post" id="signupForm">
+                <div class="form-group">
+                    <input asp-for="FullName" class="form-control" placeholder="Full Name" required />
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email Address" required />
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" required />
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" required />
+                </div>
+
+                <button type="submit" class="btn-signup" id="btnSubmit">Sign Up</button>
+                
+                <div class="loading" id="loading">
+                    <p>Creating account...</p>
+                </div>
+            </form>
+
+            <p class="login-link">
+                Already have an account? <a href="/login">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function() {
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('btnSubmit').disabled = true;
+        });
+    </script>
+</body>
+</html>

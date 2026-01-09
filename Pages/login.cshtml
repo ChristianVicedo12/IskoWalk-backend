@@ -1,0 +1,177 @@
+@page
+@model IskoWalk.Pages.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IskoWalk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #8B0000;
+        }
+
+        .right-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .success-message {
+            background-color: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .error-message {
+            background-color: #ef4444;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .form-group input:focus {
+            outline: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: white;
+            color: #8B0000;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .signup-link a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .signup-link a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <p>No Isko Walks Alone.</p>
+    </div>
+
+    <div class="right-panel">
+        <div class="login-container">
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Login to your account to continue.</p>
+
+            @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+            {
+                <div class="success-message">
+                    @Model.SuccessMessage
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="error-message">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <form method="post">
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Email" required value="@Model.Email" />
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="Password" placeholder="Password" required />
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="signup-link">
+                Don't have an account? <a href="/signup">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

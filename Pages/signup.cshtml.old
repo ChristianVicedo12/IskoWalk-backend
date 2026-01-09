@@ -1,0 +1,31 @@
+﻿@page
+@model IskoWalk.Pages.SignupModel
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="login-wrapper">
+
+    <div class="left-panel">
+        <img src="/images/IskoWalk.png" class="logo" />
+        <p>No Isko Walks Alone.</p>
+    </div>
+
+    <div class="right-panel">
+        <div class="form-header">
+            <h2>Create An Account</h2>
+            <p>Join the community with your PUP Email to get started.</p>
+        </div>
+
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="password" placeholder="Password" />
+        <input type="password" placeholder="Confirm Password" />
+
+        <button class="btn-main">Sign Up</button>
+
+        <p class="small">
+            Already have an account?
+            <a asp-page="/Index" class="link">Login</a>
+        </p>
+    </div>
+
+</div>

@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.RootNamespace = IskoWalk
+build_property.RootNamespace = IskoWalk
+build_property.ProjectDir = /Users/christianvicedo/IskoWalk-backend/IskoWalk/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/christianvicedo/IskoWalk-backend/IskoWalk
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvY3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvZGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvbG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/myrequestsaccepted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvbXlyZXF1ZXN0c2FjY2VwdGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/myrequestsactive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvbXlyZXF1ZXN0c2FjdGl2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/myrequestshistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvbXlyZXF1ZXN0c2hpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvcHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvc2lnbnVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/christianvicedo/IskoWalk-backend/IskoWalk/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ado0uujpi6

@@ -1,0 +1,98 @@
+﻿@page
+@model IskoWalk.Pages.ProfileModel
+<link rel="stylesheet" href="~/css/profile.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="~/images/IskoWalk.png" />
+            <span>ISKOWALK</span>
+        </div>
+
+        <nav class="menu">
+            <a asp-page="/Dashboard" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/dashboard" ? "active" : "")">
+                <i class="fa-solid fa-house"></i>Dashboard
+            </a>
+
+            <a asp-page="/MyRequestsActive" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/myrequestsactive" ? "active" : "")">
+                <i class="fa-solid fa-file-lines"></i>My Requests
+            </a>
+
+            <a asp-page="/Profile" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/profile" ? "active" : "")">
+                <i class="fa-solid fa-user"></i>Profile
+            </a>
+        </nav>
+
+        <div class="user-box" id="profileBtn">
+            <img src="~/images/IskoWalk.png" />
+            <div class="user-info">
+                <strong>juan.dc</strong>
+                <span>Student</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="dropdown" id="dropdownMenu">
+            <div class="dropdown-user">
+                <strong>juan.dc</strong>
+                <small>juan.dc@iskolarngbayan.pup.edu.ph</small>
+            </div>
+            <hr />
+            <a><i class="fa-solid fa-gear"></i> Setting</a>
+            <a><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+        </div>
+
+    </aside>
+
+    <main class="content">
+        <div class="topbar">
+            <div class="directory">Dashboard › <b>Profile</b></div>
+            <a href="/Create" class="btn-main"><i class="fa-solid fa-plus"></i> New Request</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <section class="profile-card">
+            <div class="card-header">
+                <h1>My Profile</h1>
+                <p>Your personal information on IskoWalk</p>
+            </div>
+            <div class="profile-details">
+                <img src="~/images/IskoWalk.png" class="profile-avatar" alt="Profile Picture" />
+
+                <div class="profile-text">
+                    <h2>juan.dc</h2>
+                    <p class="email">juan.dc@iskolarngbayan.pup.edu.ph</p>
+                    <p class="role">Student</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-card">
+            <div class="card-header">
+                <h2>Settings</h2>
+                <p>Manage your account settings.</p>
+            </div>
+            <div class="settings-content">
+                <button class="btn-delete">Delete Account</button>
+                <p class="warning-text">This action is irreversible.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    const btn = document.getElementById("profileBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.onclick = () => menu.classList.toggle("show");
+
+    document.addEventListener("click", e => {
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+            menu.classList.remove("show");
+        }
+    });
+</script>

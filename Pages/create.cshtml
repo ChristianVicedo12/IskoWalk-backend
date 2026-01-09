@@ -1,0 +1,146 @@
+﻿@page
+@model IskoWalk.Pages.CreateModel
+<link rel="stylesheet" href="~/css/create.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="~/images/IskoWalk.png" />
+            <span>ISKOWALK</span>
+        </div>
+
+        <nav class="menu">
+            <a asp-page="/Dashboard" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/dashboard" ? "active" : "")">
+                <i class="fa-solid fa-house"></i>Dashboard
+            </a>
+
+            <a asp-page="/MyRequestsActive" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/myrequestsactive" ? "active" : "")">
+                <i class="fa-solid fa-file-lines"></i>My Requests
+            </a>
+
+            <a asp-page="/Profile" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/profile" ? "active" : "")">
+                <i class="fa-solid fa-user"></i>Profile
+            </a>
+        </nav>
+
+        <div class="user-box" id="profileBtn">
+            <img src="~/images/IskoWalk.png" />
+            <div class="user-info">
+                <strong>juan.dc</strong>
+                <span>Student</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="dropdown" id="dropdownMenu">
+            <div class="dropdown-user">
+                <strong>juan.dc</strong>
+                <small>juan.dc@iskolarngbayan.pup.edu.ph</small>
+            </div>
+            <hr />
+            <a><i class="fa-solid fa-gear"></i> Setting</a>
+            <a><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <div class="topbar">
+            <div class="directory">Dashboard › <b>Create</b></div>
+            <a href="/Create" class="btn-main"><i class="fa-solid fa-plus"></i> New Request</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CREATE CARD -->
+        <div class="create-container">
+
+            <h2>Create a New Walk Request</h2>
+            <p class="subtitle">Fill out the details below to find a walking companion.</p>
+
+            <form class="create-form" onsubmit="submitRequest(event)">
+
+                <div class="create-row">
+                    <div class="form-group">
+                        <label for="fromLocation">From (PUP Location)</label>
+                        <select class="form-control">
+                            <option disabled selected>Select a starting point<i class="fa-solid fa-chevron-down select-icon"></i></option>
+                            <option>Charlie del Rosario</option>
+                            <option>Dome</option>
+                            <option>East Wing</option>
+                            <option>GrandStand</option>
+                            <option>Gymnasium</option>
+                            <option>Interfaith Chapel</option>
+                            <option>Lagoon</option>
+                            <option>Main Building</option>
+                            <option>Main Gate</option>
+                            <option>Ninoy Aquino Library</option>
+                            <option>North Wing</option>
+                            <option>Obelisk</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Specify Origin (Optional)</label>
+                        <input placeholder="e.g., S505" />
+                        <small>Room #, floor, or specific landmark.</small>
+                    </div>
+                </div>
+
+                <label>To (Destination)</label>
+                <input placeholder="e.g., Pureza LRT Station, Teresa St." />
+
+                <div class="create-row">
+                    <div>
+                        <label>Date of Walk</label>
+                        <input type="date" />
+                    </div>
+
+                    <div>
+                        <label>Time of Walk</label>
+                        <input placeholder="e.g., 5:00PM" />
+                    </div>
+                </div>
+
+                <label>Attire Description</label>
+                <input placeholder="e.g., Red shirt, blue jeans" />
+                <small>Help your companion find you easily.</small>
+
+                <label>Additional Notes (Optional)</label>
+                <textarea placeholder="e.g., Please meet me at the lobby."></textarea>
+
+                <button class="submit-btn">Submit Request</button>
+
+            </form>
+
+        </div>
+
+    </main>
+</div>
+
+<script>
+    const btn = document.getElementById("profileBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.onclick = () => menu.classList.toggle("show");
+
+    document.addEventListener("click", e => {
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+            menu.classList.remove("show");
+        }
+    });
+
+    function toggleDropdown() {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+
+    function submitRequest(e) {
+        e.preventDefault();
+        alert("Request submitted (frontend demo only).");
+    }
+</script>

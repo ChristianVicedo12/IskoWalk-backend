@@ -1,0 +1,118 @@
+﻿@page
+@model IskoWalk.Pages.DashboardModel
+<link rel="stylesheet" href="~/css/dashboard.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="~/images/IskoWalk.png" />
+            <span>ISKOWALK</span>
+        </div>
+
+        <nav class="menu">
+            <a asp-page="/Dashboard" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/dashboard" ? "active" : "")">
+                <i class="fa-solid fa-house"></i>Dashboard
+            </a>
+
+            <a asp-page="/MyRequestsActive" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/myrequestsactive" ? "active" : "")">
+                <i class="fa-solid fa-file-lines"></i>My Requests
+            </a>
+
+            <a asp-page="/Profile" class="@(PageContext.ActionDescriptor.ViewEnginePath == "/profile" ? "active" : "")">
+                <i class="fa-solid fa-user"></i>Profile
+            </a>
+        </nav>
+
+        <div class="user-box" id="profileBtn">
+            <img src="~/images/IskoWalk.png" />
+            <div class="user-info">
+                <strong>juan.dc</strong>
+                <span>Student</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="dropdown" id="dropdownMenu">
+            <div class="dropdown-user">
+                <strong>juan.dc</strong>
+                <small>juan.dc@iskolarngbayan.pup.edu.ph</small>
+            </div>
+            <hr />
+            <a><i class="fa-solid fa-gear"></i> Setting</a>
+            <a><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
+        </div>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="topbar">
+            <div class="directory"><b>Dashboard</b></div>
+            <a asp-page="/Create" class="btn-main"><i class="fa-solid fa-plus"></i> New Request</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Welcome, Iskolar!</h2>
+        <p class="subtitle">Find a walking companion and help keep the community safe.</p>
+
+        <section class="requests">
+
+            <div class="requests-header">
+                <h4>Available Walk Requests</h4>
+                <button class="refresh"><i class="fa-solid fa-rotate"></i> Refresh</button>
+            </div>
+
+            <div class="empty-state">
+                <p class="title">No available requests right now.</p>
+                <p class="subtitle">Why not be the first to create one? Your request will appear here for others to accept.</p>
+                <a asp-page="/Create" class="btn-main">Create a Request</a>
+            </div>
+
+            @*             
+                <div class="cards">
+                    @foreach(var req in Model.Requests){
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="avatar"></div>
+                                <div>
+                                    <strong>@req.Name</strong>
+                                    <span>Requester</span>
+                                </div>
+                            </div>
+
+                            <div class="card-info">
+                                <p><i class="fa-solid fa-location-dot"></i> From <span>@req.From</span></p>
+                                <p><i class="fa-solid fa-flag"></i> To <span>@req.To</span></p>
+                                <p><i class="fa-solid fa-clock"></i> Time <span>@req.Time</span></p>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="view">View Details</button>
+                                <button class="accept"><i class="fa-solid fa-check"></i> Accept</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            *@
+
+        </section>
+
+    </main>
+</div>
+
+<script>
+    const btn = document.getElementById("profileBtn");
+    const menu = document.getElementById("dropdownMenu");
+
+    btn.onclick = () => menu.classList.toggle("show");
+
+    document.addEventListener("click", e => {
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+            menu.classList.remove("show");
+        }
+    });
+</script>

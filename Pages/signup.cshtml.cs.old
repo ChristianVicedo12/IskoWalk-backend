@@ -1,0 +1,74 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using IskoWalk.Data;
+using IskoWalk.Models;
+using Microsoft.EntityFrameworkCore;
+using BCrypt.Net;
+
+namespace IskoWalk.Pages
+{
+    public class SignupModel : PageModel
+    {
+        private readonly ApplicationDbContext _context;
+
+        public SignupModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty]
+        public string FullName { get; set; } = string.Empty;
+
+        [BindProperty]
+        public string Email { get; set; } = string.Empty;
+
+        [BindProperty]
+        public string Password { get; set; } = string.Empty;
+
+        [BindProperty]
+        public string ConfirmPassword { get; set; } = string.Empty;
+
+        public string? ErrorMessage { get; set; }
+
+        public void OnGet()
+        {
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            if (Password != ConfirmPassword)
+            {
+                ErrorMessage = "Passwords do not match.";
+                return Page();
+            }
+
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == Email);
+
+            if (existingUser != null)
+            {
+                ErrorMessage = "An account with this email already exists.";
+                return Page();
+            }
+
+            var user = new User
+            {
+                FullName = FullName,
+                Email = Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(Password),
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
+            };
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/login");
+        }
+    }
+}
